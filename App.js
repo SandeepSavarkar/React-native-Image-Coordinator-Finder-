@@ -29,7 +29,7 @@ const App = props => {
   const [value, setValue] = useState('square');
   const [items, setItems] = useState([
     {label: 'Square', value: 'square'},
-    {label: 'Circle', value: 'circle'},
+    {label: 'Rectangle', value: 'rect'},
   ]);
 
   const doMeasure = () => {
@@ -44,7 +44,7 @@ const App = props => {
         qx: fx - viewLocation.fx,
         qy: py + fy - viewLocation.fy,
         px: px + fx - viewLocation.fx,
-        py: py + fy - viewLocation.fy,
+        py: py + fy - viewLocation.fy
       };
       // setCoordinates(location);
       console.log('location', location);
@@ -66,7 +66,7 @@ const App = props => {
       console.log('Image Location', location);
     });
   };
-  const shape = value === 'square' ? styles.square : styles.circle;
+  const shape = value === 'square' ? styles.square : styles.rect;
   return (
     <SafeAreaView style={{flex: 1}}>
       <View
@@ -77,7 +77,8 @@ const App = props => {
           marginRight: 50,
           marginTop: 50,
           zIndex: 10,
-        }}>
+        }}
+        >
         <DropDownPicker
           open={open}
           value={value}
@@ -142,10 +143,9 @@ const styles = StyleSheet.create({
     borderColor: 'red',
     position: 'relative',
   },
-  circle: {
+  rect: {
     width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
+    height: 60,
     borderWidth: 3,
     borderColor: 'black',
     position: 'relative',
